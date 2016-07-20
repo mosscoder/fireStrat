@@ -211,8 +211,14 @@ fireStrat <- function(dem, rdnbr, road, dec.t, zones, backups, map.height = 36, 
                "#cda4a0",
                "#50647c")
 
+  if(nrow(clust2.input) > 20000){
+    s.size <- 20000
+  }else{
+    s.size <- nrow(clust2.input)
+  }
+
   env.plot.1 <- ggplot()+
-    geom_point(data=clust2.input[sample(x=1:nrow(clust2.input), size = 20000, replace = F),],
+    geom_point(data=clust2.input[sample(x=1:nrow(clust2.input), size = s.size, replace = F),],
                aes(x=winter.insolation, y=elevation, color=factor(zone)))+
     scale_color_manual(name="Zone", values = palette)+
     geom_point(data=final.points, aes(x=winter.insolation, y=elevation, fill=NULL), color="white", size=7)+
@@ -225,7 +231,7 @@ fireStrat <- function(dem, rdnbr, road, dec.t, zones, backups, map.height = 36, 
   ggsave(plot=env.plot.1, filename=paste("env.cover.1.pdf",sep=""),
          height = 8.5, width = 11, dpi = 300)
 
-  env.plot.2 <- ggplot(clust2.input[sample(x=1:nrow(clust2.input), size = 20000, replace = F),], aes(x=winter.insolation, y=slope, color=factor(zone)))+
+  env.plot.2 <- ggplot(clust2.input[sample(x=1:nrow(clust2.input), size = s.size, replace = F),], aes(x=winter.insolation, y=slope, color=factor(zone)))+
     geom_point()+
     scale_color_manual(name="Zone", values = palette)+
     geom_point(data=final.points, aes(x=winter.insolation, y=slope), color="white", size=7)+
@@ -239,7 +245,7 @@ fireStrat <- function(dem, rdnbr, road, dec.t, zones, backups, map.height = 36, 
   ggsave(plot=env.plot.2, filename=paste("env.cover.2.pdf",sep=""),
          height = 8.5, width = 11, dpi = 300)
 
-  env.plot.3 <- ggplot(clust2.input[sample(x=1:nrow(clust2.input), size = 20000, replace = F),], aes(x=elevation, y=slope, color=factor(zone)))+
+  env.plot.3 <- ggplot(clust2.input[sample(x=1:nrow(clust2.input), size = s.size, replace = F),], aes(x=elevation, y=slope, color=factor(zone)))+
     geom_point()+
     scale_color_manual(name="Zone", values = palette)+
     geom_point(data=final.points, aes(x=elevation, y=slope), color="white", size=7)+
