@@ -6,7 +6,7 @@
 The fireStrat package assists in the stratification and sampling of a high severity fires. Briefly, it creates a specified number of partitions for the following environmental variables: elevation, slope, and winter solstice insolation and identifies representative points within for sampling. 
 
 ## Installation
-Users may download and install the crustCover package from a Github repository as demonstrated below:
+Users may download and install the fireStrat package from a Github repository as demonstrated below:
 
 ```{r, eval=F}
 if (!require("devtools"))
