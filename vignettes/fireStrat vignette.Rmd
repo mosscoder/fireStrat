@@ -3,7 +3,7 @@
 
 ## Introduction
 
-The fireStrat package allows you to automatically partition the environmental space of a high severity fire. It partitions the following environmental variables: elevation. slope, and winter solstice insolation. A specified number of partitions is set by the user. Representative points within the partitions are identified to assist with sampling guidance. 
+The fireStrat package assists in the stratification and sampling of a high severity fires. Briefly, it creates a specified number of partitions for the following environmental variables: elevation, slope, and winter solstice insolation and identifies representative points within for sampling. 
 
 ## Installation
 Users may download and install the crustCover package from a Github repository as demonstrated below:
@@ -57,7 +57,7 @@ The fireStrat() function generates the following files in your working directory
 **buffer.insolation.tif** - a winter solstice insolation raster layer for the buffered area  
 **buffer.slope.tif** - a slope raster layer for the buffered area  
 **env.cover.x.pdf** - three plots depicting partitions and sampling points in bivariate environmental space  
-**stratified.espace.csv** - a table of all map grid cells containing coordinates, environmental values, and zone assignments  
+**stratified.espace.csv** - a table of all map grid cells within the buffered area containing coordinates, environmental values, and zone assignments  
 **site_map.pdf** - a static map of the zones and sampling sites with road and contour overlays  
 **sampling.points.csv** - a table containing sampling point ID's, coordinates, and environmental values  
 **sampling_points.gpx** - a gpx file to load sampling points into Google Earth or similar program  
