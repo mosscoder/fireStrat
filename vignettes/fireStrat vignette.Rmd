@@ -53,15 +53,15 @@ fireStrat(dem = dem, rdnbr = rdnbr, road = road, dec.t = 0, zones = 5, backups =
 
 The fireStrat() function generates the following files in your working directory:
 
-**buffer.elevation.tif** - a DEM raster layer for the buffered area
-**buffer.insolation.tif** - a winter solstice insolation raster layer for the buffered area
-**buffer.slope.tif** - a slope raster layer for the buffered area
-**env.cover.x.pdf** - three plots depicting partitions and sampling points in bivariate environmental space
-**stratified.espace.csv** - a table of all map grid cells containing coordinates, environmental values, and zone assignments
-**site_map.pdf** - a static map of the zones and sampling sites with road and contour overlays
-**sampling.points.csv** - a table containing sampling point ID's, coordinates, and environmental values
-**sampling_points.gpx** - a gpx file to load sampling points into Google Earth or similar program
-**zones.kmz** - a kmz file to load zones into Google Earth or similar program
+**buffer.elevation.tif** - a DEM raster layer for the buffered area  
+**buffer.insolation.tif** - a winter solstice insolation raster layer for the buffered area  
+**buffer.slope.tif** - a slope raster layer for the buffered area  
+**env.cover.x.pdf** - three plots depicting partitions and sampling points in bivariate environmental space  
+**stratified.espace.csv** - a table of all map grid cells containing coordinates, environmental values, and zone assignments  
+**site_map.pdf** - a static map of the zones and sampling sites with road and contour overlays  
+**sampling.points.csv** - a table containing sampling point ID's, coordinates, and environmental values  
+**sampling_points.gpx** - a gpx file to load sampling points into Google Earth or similar program  
+**zones.kmz** - a kmz file to load zones into Google Earth or similar program  
 
 
 
