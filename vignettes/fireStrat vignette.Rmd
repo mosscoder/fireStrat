@@ -29,7 +29,7 @@ rdnbr <- raster("az3532911160120100620_20090709_20110613_rdnbr.tif")
 road <- readOGR(dsn = "MVUM_Roads.shp", layer = "MVUM_Roads")
 ```
 
-Next the user calls the fireStrat() function, specifying the above layers, the desired number of zones (minimum of 5 maximum of 18), number of backup points within each of those zones, and mean winter solstice temperature for the region (dec.t argument). The latter is needed for the production of the winter solstice insolation model. 
+Next the user calls the fireStrat() function, specifying the above layers, the desired number of zones (minimum of 5 maximum of 18), number of backup points within each of those zones, and mean winter solstice temperature for the region (dec.t argument). The latter is needed for the production of the winter solstice insolation model. Suitable average temperature data may be drawn from: http://www.ncdc.noaa.gov/cdo-web/search?datasetid=GHCNDMS. 
 
 ```{r, echo=FALSE}
 library(fireStrat)
