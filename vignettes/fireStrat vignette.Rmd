@@ -1,0 +1,76 @@
+---
+title: "fireStrat Package"
+author: "Kyle Doherty"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Introduction
+
+The fireStrat package allows you to automatically partition the environmental space of a high severity fire. It partitions the following environmental variables: elevation. slope, and winter solstice insolation. A specified number of partitions is set by the user. Representative points within the partitions are identified to assist with sampling guidance. 
+
+## Installation
+Users may download and install the crustCover package from a Github repository as demonstrated below:
+
+```{r, eval=F}
+if (!require("devtools"))
+  install.packages("devtools")
+  library(devtools)
+
+install_github(repo = "mosscoder/fireStrat")
+```
+
+## Usage
+
+The user must first load a digital elevation model for the region of interest, the rdnbr fire severity layer, and a roads layer for the region.
+
+```{r, echo=FALSE}
+library(raster)
+library(rgdal)
+
+dem <- raster("hdr.adf")
+rdnbr <- raster("az3532911160120100620_20090709_20110613_rdnbr.tif")
+road <- readOGR(dsn = "MVUM_Roads.shp", layer = "MVUM_Roads")
+```
+
+Next the user calls the fireStrat() function, specifying the above layers, the desired number of zones (minimum of 5 maximum of 18), number of backup points within each of those zones, and mean December temperature for the region (dec.t argument). The latter is needed for the production of the winter solstice insolation model. 
+
+```{r, echo=FALSE}
+library(fireStrat)
+
+fireStrat(dem = dem, rdnbr = rdnbr, road = road, dec.t = 0, zones = 5, backups = 2)
+```
+
+By default the cutoff value for the fire severity raster is 643, though this may be adjusted with the cutoff argument as follows:
+
+```{r, echo=FALSE}
+fireStrat(dem = dem, rdnbr = rdnbr, road = road, dec.t = 0, zones = 5, backups = 2, cutoff = 700)
+```
+
+By default the output pdf map is 36" x 36". The user may adjust the output pdf map dimensions in inches with the map.height and map.width arguments as follows:
+
+```{r, echo=FALSE}
+fireStrat(dem = dem, rdnbr = rdnbr, road = road, dec.t = 0, zones = 5, backups = 2, map.width = 20, map.height = 40)
+```
+
+## Products
+
+The fireStrat() function generates the following files in your working directory:
+
+**buffer.elevation.tif** - a DEM raster layer for the buffered area
+**buffer.insolation.tif** - a winter solstice insolation raster layer for the buffered area
+**buffer.slope.tif** - a slope raster layer for the buffered area
+**env.cover.x.pdf** - three plots depicting partitions and sampling points in bivariate environmental space
+**stratified.espace.csv** - a table of all map grid cells containing coordinates, environmental values, and zone assignments
+**site_map.pdf** - a static map of the zones and sampling sites with road and contour overlays
+**sampling.points.csv** - a table containing sampling point ID's, coordinates, and environmental values
+**sampling_points.gpx** - a gpx file to load sampling points into Google Earth or similar program
+**zones.kmz** - a kmz file to load zones into Google Earth or similar program
+
+
+
+
