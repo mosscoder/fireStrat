@@ -1,2 +1,2 @@
 # fireStrat
-A environmental stratification toolset for post fire monitoring in the southwestern US. 
+An environmental stratification toolset for post fire monitoring in the southwestern US. 
